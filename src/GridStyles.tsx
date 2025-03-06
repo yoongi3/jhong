@@ -17,4 +17,6 @@ export const GridCell = styled.div<{ cellSize: number;}>`
     box-shadow: 0 0 ${(props) => props.cellSize / 2}px 0 #00FFFF;   /* Grid Color */
     opacity: 0.2;
     box-sizing: border-box;
+    padding: ${(props) => props.cellSize * 0.1}px; /* Adjust this percentage to control the cell size */
+
 `
