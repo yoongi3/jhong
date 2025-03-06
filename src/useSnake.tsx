@@ -41,6 +41,8 @@ export const useSnake = (gridSize: number) => {
         return true;
     }
 
+    
+
     useEffect(() => {
         if (intervalRef.current) return;
 
