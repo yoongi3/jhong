@@ -1,5 +1,5 @@
 import { GlobalStyle } from './GlobalStyles'
-import Grid from './Grid'
+import Grid from './Grid/Grid'
 
 const GRID_WIDTH = 30
 const GRID_HEIGHT = GRID_WIDTH/1.5

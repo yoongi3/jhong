@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import debounce from 'lodash/debounce';
 import { GridContainer,GridCell } from "./GridStyles";
-import { SnakeContainer, SnakePart } from "./SnakeStyles";
-import { useSnake } from "./useSnake";
+import { SnakeContainer, SnakePart } from "../Snake/SnakeStyles";
+import { useSnake } from "../Snake/useSnake";
 
 interface GridProps {
     gridWidth: number;
