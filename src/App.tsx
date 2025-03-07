@@ -1,11 +1,14 @@
 import { GlobalStyle } from './GlobalStyles'
 import Grid from './Grid'
 
+const GRID_WIDTH = 30
+const GRID_HEIGHT = GRID_WIDTH/1.5
+
 function App() {
   return (
     <>
       <GlobalStyle/>
-      <Grid gridSize={30}/>
+      <Grid gridWidth={GRID_WIDTH} gridHeight={GRID_HEIGHT}/>
     </>
   )
 }

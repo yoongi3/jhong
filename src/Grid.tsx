@@ -5,18 +5,19 @@ import { SnakeContainer, SnakePart } from "./SnakeStyles";
 import { useSnake } from "./useSnake";
 
 interface GridProps {
-    gridSize: number;
+    gridWidth: number;
+    gridHeight: number;
 }
 
-const Grid: React.FC<GridProps> = ({ gridSize }) => {
+const Grid: React.FC<GridProps> = ({ gridWidth, gridHeight }) => {
     const [cellSize, setCellSize] = useState(0);
 
-    const { snake } = useSnake(gridSize);
+    const { snake } = useSnake(gridWidth, gridHeight);
 
     // Handle window resizing 
     useEffect(() => {
         const calculateCellSize = debounce(() => {
-            const newCellSize = window.innerWidth / gridSize;
+            const newCellSize = window.innerWidth / gridWidth;
             //console.log(newCellSize)
             setCellSize(newCellSize)
         },100);
@@ -26,12 +27,12 @@ const Grid: React.FC<GridProps> = ({ gridSize }) => {
         window.addEventListener("resize", calculateCellSize);
 
         return () => window.removeEventListener("resize", calculateCellSize);
-    }, [gridSize])
+    }, [gridWidth])
 
     return (
-        <GridContainer gridSize={gridSize} cellSize={cellSize}>
+        <GridContainer gridSize={gridWidth} cellSize={cellSize}>
             {/* Render grid cells */}
-            {Array.from({ length: gridSize * gridSize / 1.5 }).map((_, index) => (
+            {Array.from({ length: gridWidth * gridHeight }).map((_, index) => (
                 <GridCell 
                     key={index}
                     cellSize={cellSize} 

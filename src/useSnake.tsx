@@ -5,11 +5,11 @@ const SNAKESPEED = 500; // Milliseconds
 const DIRECTIONS = [
     { x:1, y: 0},       // Right
     { x:-1, y: 0},      // Left
-    { x:0, y: 1},       // Up
-    { x:0, y: -1},      // Down
+    { x:0, y: -1},       // Up
+    { x:0, y: 1},      // Down
 ];
 
-const INITIAL_SNAKE = [
+const NORMAL_START = [
     { x: 8, y: 7 }, 
     { x: 7, y: 7 }, 
     { x: 6, y: 7 }, 
@@ -17,55 +17,87 @@ const INITIAL_SNAKE = [
     { x: 4, y: 7 },
     { x: 3, y: 7 },
     { x: 2, y: 7 },
-    { x: 1, y: 7 },
 ]
 
-export const useSnake = (gridSize: number) => {
+const GAME_OVER_TEST = [
+    { x: 5, y: 6 }, 
+    { x: 5, y: 5 }, 
+    { x: 6, y: 5 }, 
+    { x: 6, y: 6 }, 
+    { x: 6, y: 7 }, 
+    { x: 6, y: 8 }, 
+    { x: 6, y: 9 }, 
+    { x: 5, y: 9 },
+    { x: 4, y: 9 },
+    { x: 4, y: 8 },
+    { x: 4, y: 7 },
+    { x: 4, y: 6 },
+]
+
+const INITIAL_SNAKE = [...NORMAL_START]
+
+export const useSnake = (gridWidth: number, gridHeight: number) => {
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [snake, setSnake] = useState<{x: number, y:number}[]>(INITIAL_SNAKE);
 
-    const getRandomDirection = () => {
-        const randomIndex = Math.floor(Math.random() * DIRECTIONS.length);
-        return DIRECTIONS[randomIndex];
-    }
-
     const isValidMove = (newHead: { x:number, y:number }) => {
-        if (newHead.x < 0 || newHead.x > gridSize || newHead.y < 0 || newHead.y > gridSize)
+        if (newHead.x < 0 || newHead.x >= gridWidth || newHead.y < 0 || newHead.y >= gridHeight){
             return false;
+        }
 
         for (let i=1; i<snake.length; i++){
-            console.log( newHead, snake[i])
             if (newHead.x == snake[i].x && newHead.y == snake[i].y)
                 return false;
         }
         return true;
     }
 
+    function getShuffledOrder(excludeNumber: number) { // TODO: exclude direction towards prevHead
+        let order = [0, 1, 2, 3].filter(num => num !== excludeNumber);
     
+        for (let i = order.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1)); 
+            [order[i], order[j]] = [order[j], order[i]];
+        }
+    
+        return order;
+    }
+
+    const moveSnake = () => {
+        setSnake((prevSnake) => {
+            // Single Direction Test
+
+            // const direction = DIRECTIONS[2] // TEST CASES: 0:right, 1:left, 2:up, 3:down
+            // let newHead = {
+            //     x: prevSnake[0].x + direction.x,
+            //     y: prevSnake[0].y + direction.y
+            // }
+            // if (isValidMove(newHead)){
+            //     return[newHead, ...prevSnake.slice(0, -1)];
+            // }
+
+            const randomOrder = getShuffledOrder(1) // TODO: add a find opposite to previous move function
+
+            for (let i = 0; i < DIRECTIONS.length - 1; i++){
+                let direction = DIRECTIONS[randomOrder[i]]
+                let newHead = {
+                    x: prevSnake[0].x + direction.x,
+                    y: prevSnake[0].y + direction.y,
+                };
+
+                if (isValidMove(newHead)){
+                    return[newHead, ...prevSnake.slice(0, -1)];
+                }
+            }
+            return INITIAL_SNAKE; // Restart
+        });
+    };
 
     useEffect(() => {
         if (intervalRef.current) return;
 
-        const moveSnake = () => {
-            let direction = getRandomDirection();
-            let newHead = {
-                x: snake[0].x + direction.x,
-                y: snake[0].y + direction.y,
-            };
-            while (!isValidMove(newHead)){
-                direction = getRandomDirection();
-                newHead = {
-                    x: snake[0].x + direction.x,
-                    y: snake[0].y + direction.y,
-                };
-            }
-
-            setSnake((prevSnake) => {
-                return [newHead, ...prevSnake.slice(0,-1)];
-            });
-        };
-
         intervalRef.current = setInterval(moveSnake, SNAKESPEED)
+
         return () => {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
