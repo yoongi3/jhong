@@ -19,20 +19,20 @@ const NORMAL_START = [
     { x: 2, y: 7 },
 ]
 
-const GAME_OVER_TEST = [
-    { x: 5, y: 6 }, 
-    { x: 5, y: 5 }, 
-    { x: 6, y: 5 }, 
-    { x: 6, y: 6 }, 
-    { x: 6, y: 7 }, 
-    { x: 6, y: 8 }, 
-    { x: 6, y: 9 }, 
-    { x: 5, y: 9 },
-    { x: 4, y: 9 },
-    { x: 4, y: 8 },
-    { x: 4, y: 7 },
-    { x: 4, y: 6 },
-]
+// const GAME_OVER_TEST = [
+//     { x: 5, y: 6 }, 
+//     { x: 5, y: 5 }, 
+//     { x: 6, y: 5 }, 
+//     { x: 6, y: 6 }, 
+//     { x: 6, y: 7 }, 
+//     { x: 6, y: 8 }, 
+//     { x: 6, y: 9 }, 
+//     { x: 5, y: 9 },
+//     { x: 4, y: 9 },
+//     { x: 4, y: 8 },
+//     { x: 4, y: 7 },
+//     { x: 4, y: 6 },
+// ]
 
 const INITIAL_SNAKE = [...NORMAL_START]
 
@@ -52,7 +52,7 @@ export const useSnake = (gridWidth: number, gridHeight: number) => {
         return true;
     }
 
-    function getShuffledOrder(excludeNumber: number) { // TODO: exclude direction towards prevHead
+    const getShuffledOrder = (excludeNumber: number) => { // TODO: exclude direction towards prevHead
         let order = [0, 1, 2, 3].filter(num => num !== excludeNumber);
     
         for (let i = order.length - 1; i > 0; i--) {
@@ -62,6 +62,15 @@ export const useSnake = (gridWidth: number, gridHeight: number) => {
     
         return order;
     }
+
+    const getOppositeDirection = () => {
+        const prevDirIndex = DIRECTIONS.findIndex((direction) => {
+            return direction.x === snake[0].x - snake[1].x && direction.y === snake[0].y - snake[1].y;
+        });
+    
+        // If odd (1 or 3), subtract 1; if even (0 or 2), add 1
+        return (prevDirIndex + (prevDirIndex % 2 === 0 ? 1 : -1) + 4) % 4;
+    };
 
     const moveSnake = () => {
         setSnake((prevSnake) => {
@@ -75,8 +84,9 @@ export const useSnake = (gridWidth: number, gridHeight: number) => {
             // if (isValidMove(newHead)){
             //     return[newHead, ...prevSnake.slice(0, -1)];
             // }
-
-            const randomOrder = getShuffledOrder(1) // TODO: add a find opposite to previous move function
+            const oppositeDirection = getOppositeDirection()
+            console.log(oppositeDirection)
+            const randomOrder = getShuffledOrder(oppositeDirection) // TODO: add a find opposite to previous move function
 
             for (let i = 0; i < DIRECTIONS.length - 1; i++){
                 let direction = DIRECTIONS[randomOrder[i]]
