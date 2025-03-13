@@ -5,6 +5,7 @@ export const PanelButton = styled.button`
     height: 20%;
     background-color: #4B0082;
     color: white;
+    text-shadow: 1px 1px 2px #000000;
     font-size: 2vw;
 `;
 
