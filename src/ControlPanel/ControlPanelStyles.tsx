@@ -14,13 +14,14 @@ export const StyledControlPanel = styled.div`
     background-color: rgba(255, 215, 0, 0.2);
     border-radius: 10px;
     padding: 1.5vw;
-    outline: 0.2vw solid #FFD700;
-    box-shadow: 0 0 18px 0 #FFD700;
+    outline: 0.2vw solid #FFFFFF;
     font-size: 2vw;
+
+    text-shadow: 1px 1px 2px #000000;
     
     @media (max-width: 500px) and (max-height: 800px) { /* TODO: Phone screens */
-        width: 30vw;
-        height: 40vh;
+        width: 40vw;
+        height: 80vw;
         top: 55vh;
         left: 35vw;
     }
@@ -46,7 +47,6 @@ export const ScoreText = styled.div`
 `;
 export const ScoreLabel = styled.span`
     color: #FF00FF; 
-    text-shadow: 1px 1px 2px #000000;
     font-weight: bold;
     letter-spacing: 0.1em;
 `;
@@ -56,7 +56,6 @@ export const ScoreNumber = styled.span`
     font-weight: bold;
     letter-spacing: 0.4em;
     border-radius: 10px;
-    text-shadow: 1px 1px 2px #000000;
 `;
 
 export const ContentButtonContainer = styled.div`

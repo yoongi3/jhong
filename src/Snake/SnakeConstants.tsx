@@ -1,4 +1,4 @@
-export const SNAKESPEED = 500; // Snakes movement speed - Milliseconds
+export const SNAKESPEED = 200; // Snakes movement speed - Milliseconds
 
 const SNAKE_START_POSITION = [
     { x: 8, y: 7 }, 

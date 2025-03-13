@@ -32,7 +32,7 @@ export const getOppositeDirection = (snake: { x: number, y: number }[]) => {
     return (prevDirIndex + (prevDirIndex % 2 === 0 ? 1 : -1) + 4) % 4;
 };
 
-export const moveSnake = (snake: { x: number, y: number }[], gridWidth: number, gridHeight: number) => {
+export const moveSnake = (snake: { x: number, y: number }[], gridWidth: number, gridHeight: number, berry: { x: number, y: number }): [{ x: number, y: number }[], boolean] => {
     // Single Direction Test
 
     // const direction = DIRECTIONS[2] // TEST CASES: 0:right, 1:left, 2:up, 3:down
@@ -54,9 +54,25 @@ export const moveSnake = (snake: { x: number, y: number }[], gridWidth: number, 
         };
 
         if (isValidMove(newHead, snake, gridWidth, gridHeight)) {
-            return [newHead, ...snake.slice(0, -1)];
+            // Berry Collision - Add new head
+            if (newHead.x === berry.x && newHead.y === berry.y){
+                return [[newHead, ...snake], true]
+            }
+            // No Berry - Add new head and remove tail
+            return [[newHead, ...snake.slice(0, -1)], false];
         }
     }
-    return INITIAL_SNAKE;
+    return [INITIAL_SNAKE, false];
 };
 
+export const getRandomBerryPosition = (snake: { x: number; y: number }[], gridWidth: number, gridHeight: number) => {
+    let position: { x:number, y: number };
+    do {
+        position = {
+            x: Math.floor(Math.random() * gridWidth),
+            y: Math.floor(Math.random() * gridHeight),
+        };
+    } while (snake.some(segment => segment.x === position.x && segment.y === position.y));
+    
+    return position;
+};

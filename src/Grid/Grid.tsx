@@ -3,6 +3,7 @@ import debounce from 'lodash/debounce';
 import { GridContainer,GridCell } from "./GridStyles";
 import { SnakeContainer, SnakePart } from "../Snake/SnakeStyles";
 import { useSnake } from "../Snake/useSnake";
+import berryImg from "../Assets/berry.png";
 
 interface GridProps {
     gridWidth: number;
@@ -12,7 +13,7 @@ interface GridProps {
 const Grid: React.FC<GridProps> = ({ gridWidth, gridHeight }) => {
     const [cellSize, setCellSize] = useState(0);
 
-    const { snake } = useSnake(gridWidth, gridHeight);
+    const { snake, berry } = useSnake(gridWidth, gridHeight);
 
     // Handle window resizing 
     useEffect(() => {
@@ -38,6 +39,19 @@ const Grid: React.FC<GridProps> = ({ gridWidth, gridHeight }) => {
                     cellSize={cellSize} 
                 />
             ))}
+            
+            <img
+                src={berryImg}
+                alt="Berry"
+                style={{
+                    position: "absolute",
+                    left: berry.x * cellSize,
+                    top: berry.y * cellSize,
+                    width: cellSize,
+                    height: cellSize,
+                    userSelect: "none",
+                }}
+            />
 
             {/* Render snake */}
             <SnakeContainer>
