@@ -1,3 +1,4 @@
+import ControlPanel from './ControlPanel/ControlPanel'
 import { GlobalStyle } from './GlobalStyles'
 import Grid from './Grid/Grid'
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <GlobalStyle/>
+      <ControlPanel/>
       <Grid gridWidth={GRID_WIDTH} gridHeight={GRID_HEIGHT}/>
     </>
   )

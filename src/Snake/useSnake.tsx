@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { SNAKESPEED, INITIAL_SNAKE } from "./SnakeConstants";
-import { moveSnake } from "./snakeLogic";
+import { moveSnake } from "./SnakeLogic";
 
 export const useSnake = (gridWidth: number, gridHeight: number) => {
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
