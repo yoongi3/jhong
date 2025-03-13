@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const GridContainer = styled.div<{ gridSize: number; cellSize: number }>`
+export const GridContainer = styled.div<{ gridColumns: number; gridRows: number; cellSize: number }>`
     display: grid;
-    grid-template-columns: repeat(${(props) => props.gridSize}, ${(props) => props.cellSize}px);
-    grid-template-rows: repeat(${(props) => props.gridSize}, ${(props) => props.cellSize}px);
+    grid-template-columns: repeat(${(props) => props.gridColumns}, ${(props) => props.cellSize}px);
+    grid-template-rows: repeat(${(props) => props.gridRows}, ${(props) => props.cellSize}px);
     width: 100%;
     height: 100%;
     background: none;

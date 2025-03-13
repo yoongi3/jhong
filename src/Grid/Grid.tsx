@@ -30,7 +30,7 @@ const Grid: React.FC<GridProps> = ({ gridWidth, gridHeight }) => {
     }, [gridWidth])
 
     return (
-        <GridContainer gridSize={gridWidth} cellSize={cellSize}>
+        <GridContainer gridColumns={gridWidth} gridRows={gridHeight} cellSize={cellSize}>
             {/* Render grid cells */}
             {Array.from({ length: gridWidth * gridHeight }).map((_, index) => (
                 <GridCell 
