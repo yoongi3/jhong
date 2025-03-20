@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import debounce from 'lodash/debounce';
 import { GridContainer,GridCell } from "./GridStyles";
 import { SnakeContainer, SnakePart } from "../Snake/SnakeStyles";
-import { useSnake } from "../Snake/useSnake";
 import berryImg from "../Assets/berry.png";
 
 interface GridProps {
     gridWidth: number;
     gridHeight: number;
+    snake: { x: number; y: number }[];
+    berry: { x: number; y: number };
 }
 
-const Grid: React.FC<GridProps> = ({ gridWidth, gridHeight }) => {
+const Grid: React.FC<GridProps> = ({ gridWidth, gridHeight, snake, berry }) => {
     const [cellSize, setCellSize] = useState(0);
-
-    const { snake, berry } = useSnake(gridWidth, gridHeight);
 
     // Handle window resizing 
     useEffect(() => {

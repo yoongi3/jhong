@@ -9,6 +9,8 @@ export const PanelButton = styled.button`
     color: #FFFFFF;
     font-size: 2vw;
     cursor: pointer;
+    text-shadow: 1px 1px 2px #000000;
+
 
     &:hover {
         color: #FF00FF;

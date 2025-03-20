@@ -1,9 +1,13 @@
+import React from "react";
 import Button from "../Reusable/Button/Button";
 import { ButtonVariants } from "../Reusable/Button/ButtonVariants";
 import { StyledControlPanel, ContentButtonContainer, ScoreContainer, ScoreText, ScoreLabel, ScoreNumber } from "./ControlPanelStyles";
 
+interface ControlPanelProps {
+    score: number; 
+}
 
-const ControlPanel = () => {
+const ControlPanel: React.FC<ControlPanelProps> = ({ score }) => {
     return (
         <StyledControlPanel>
             <ScoreContainer>
@@ -13,7 +17,7 @@ const ControlPanel = () => {
                 </ScoreText>
                 <ScoreText>
                     <ScoreLabel>Score: </ScoreLabel>
-                    <ScoreNumber>000001</ScoreNumber>
+                    <ScoreNumber>{score.toString().padStart(6, "0")}</ScoreNumber>
                 </ScoreText>
             </ScoreContainer>
                 
