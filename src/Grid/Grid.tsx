@@ -1,4 +1,4 @@
-import { GridContainer, GridCell } from "./GridStyles";
+import MemoizedGridCell, { GridContainer } from "./GridStyles";
 import { SnakeContainer, SnakePart } from "../Snake/SnakeStyles";
 import berryImg from "../Assets/berry.png";
 import { useGridSize } from "../Hooks/UseGrid";
@@ -11,12 +11,15 @@ interface GridProps {
 const Grid: React.FC<GridProps> = ({ snake, berry }) => {
   const { cellSize, cols, rows } = useGridSize();
 
+  const renderGrid = () => (
+    Array.from({ length: cols * rows }).map((_, index) => (
+      <MemoizedGridCell key={index} cellSize={cellSize} />
+    ))
+  );
+
   return (
     <GridContainer gridColumns={cols} gridRows={rows} cellSize={cellSize}>
-      {/* Render grid cells */}
-      {Array.from({ length: cols * rows }).map((_, index) => (
-        <GridCell key={index} cellSize={cellSize} />
-      ))}
+      {renderGrid()}
 
       {/* Render berry */}
       <img

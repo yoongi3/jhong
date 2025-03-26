@@ -7,7 +7,7 @@ interface ControlPanelProps {
     score: number; 
 }
 
-const ControlPanel: React.FC<ControlPanelProps> = ({ score }) => {
+const ControlPanel: React.FC<ControlPanelProps> = React.memo(({ score }) => {
     return (
         <StyledControlPanel>
             <ScoreContainer>
@@ -29,6 +29,6 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ score }) => {
             </ContentButtonContainer>
         </StyledControlPanel>
     );
-}
+});
 
-export default ControlPanel
+export default ControlPanel;

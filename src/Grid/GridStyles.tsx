@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 export const GridContainer = styled.div<{ gridColumns: number; gridRows: number; cellSize: number }>`
@@ -18,5 +19,7 @@ export const GridCell = styled.div<{ cellSize: number;}>`
     opacity: 0.2;
     box-sizing: border-box;
     padding: ${(props) => props.cellSize * 0.1}px; /* Adjust this percentage to control the cell size */
-
 `
+
+const MemoizedGridCell = React.memo(GridCell);
+export default MemoizedGridCell;

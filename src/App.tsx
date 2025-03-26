@@ -1,7 +1,7 @@
 import ControlPanel from './ControlPanel/ControlPanel'
 import { GlobalStyle } from './GlobalStyles'
 import Grid from './Grid/Grid'
-import { useSnake } from './Snake/useSnake'
+import { useSnake } from './Hooks/useSnake'
 
 
 function App() {

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { SNAKESPEED, INITIAL_SNAKE } from "./SnakeConstants";
-import { getRandomBerryPosition, moveSnake } from "./SnakeLogic";
-import { useGridSize } from "../Hooks/UseGrid";
+import { SNAKESPEED, INITIAL_SNAKE } from "../Snake/SnakeConstants";
+import { getRandomBerryPosition, moveSnake } from "../Snake/SnakeLogic";
+import { useGridSize } from "./UseGrid";
 
 export const useSnake = () => {
   const { cols, rows } = useGridSize();
