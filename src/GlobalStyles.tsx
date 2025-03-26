@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`* {
 html, body {
     height: auto; /* Let height adjust to content */
     min-height: 100vh; /* Ensure it still takes up the full screen if content is small */
-    overflow-y: auto; /* Enable vertical scroll only if needed */
+    overflow-y: hidden; /* Enable vertical scroll only if needed */
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 

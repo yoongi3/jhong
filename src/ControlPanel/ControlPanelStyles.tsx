@@ -4,7 +4,7 @@ export const StyledControlPanel = styled.div`
     position: absolute;
     top: 10vw;
     left: 5vw;
-    height: 40vw;
+    height: 60vh;
     width: 20vw;
     z-index: 3;
     display: flex;

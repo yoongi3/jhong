@@ -1,4 +1,4 @@
-import { DIRECTIONS, INITIAL_SNAKE } from "./SnakeConstants";
+import { DIRECTIONS } from "./SnakeConstants";
 
 export const isValidMove = (newHead: { x: number, y: number }, snake: { x: number, y: number }[], gridWidth: number, gridHeight: number) => {
         if (newHead.x < 0 || newHead.x >= gridWidth || newHead.y < 0 || newHead.y >= gridHeight){

@@ -1,48 +1,53 @@
 import { useEffect, useRef, useState } from "react";
 import { SNAKESPEED, INITIAL_SNAKE } from "./SnakeConstants";
 import { getRandomBerryPosition, moveSnake } from "./SnakeLogic";
+import { useGridSize } from "../Hooks/UseGrid";
 
-export const useSnake = (gridWidth: number, gridHeight: number) => {
-    const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-    const [snake, setSnake] = useState<{x: number, y: number}[]>(INITIAL_SNAKE);
-    const [berry, setBerry] = useState<{x: number, y: number}>(getRandomBerryPosition(INITIAL_SNAKE, gridWidth, gridHeight));
-    const [score, setScore] = useState(0);
+export const useSnake = () => {
+  const { cols, rows } = useGridSize();
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-    useEffect(() => {
-        if (intervalRef.current) return;
+  // Snake, berry, and score states
+  const [snake, setSnake] = useState<{ x: number; y: number }[]>(INITIAL_SNAKE);
+  const [berry, setBerry] = useState<{ x: number; y: number }>(
+    getRandomBerryPosition(INITIAL_SNAKE, cols, rows)
+  );
+  const [score, setScore] = useState(0);
 
-        intervalRef.current = setInterval(() => {
-            setSnake((prevSnake) => {
-                const [newSnake, ateBerry, isGameOver] = moveSnake(prevSnake, gridWidth, gridHeight, berry);
+  // Snake movement and game logic
+  useEffect(() => {
+    if (intervalRef.current) return;
 
-                if (isGameOver) {
-                    setScore(0);
-                    setBerry(getRandomBerryPosition(newSnake, gridWidth, gridHeight));
-                    return INITIAL_SNAKE;
-                }
+    intervalRef.current = setInterval(() => {
+      setSnake((prevSnake) => {
+        const [newSnake, ateBerry, isGameOver] = moveSnake(prevSnake, cols, rows, berry);
 
-                if (ateBerry) {
-                    // Update the berry position and increment the score
-                    const newBerry = getRandomBerryPosition(newSnake, gridWidth, gridHeight);
-                    setBerry(newBerry);
+        // Handle game over
+        if (isGameOver) {
+          setScore(0);
+          setBerry(getRandomBerryPosition(newSnake, cols, rows));
+          return INITIAL_SNAKE;
+        }
 
-                    setScore((prevScore) => {
-                        const newScore = prevScore + 1;
-                        return newScore;
-                    });
-                }
+        // Handle berry eating
+        if (ateBerry) {
+          const newBerry = getRandomBerryPosition(newSnake, cols, rows);
+          setBerry(newBerry);
+          setScore((prevScore) => prevScore + 1);
+        }
 
-                return newSnake;
-            });
-        }, SNAKESPEED);
+        return newSnake;
+      });
+    }, SNAKESPEED);
 
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-                intervalRef.current = null;
-            }
-        };
-    }, [berry]); 
+    // Cleanup on unmount
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    };
+  }, [berry, cols, rows]); // Recalculate if grid size changes
 
-    return { snake, berry, score };
+  return { snake, berry, score };
 };
