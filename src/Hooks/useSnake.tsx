@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { SNAKESPEED, INITIAL_SNAKE } from "../Snake/SnakeConstants";
 import { getRandomBerryPosition, moveSnake } from "../Snake/SnakeLogic";
-import { useGridSize } from "./UseGrid";
+import { useGridSize } from "../Hooks/useGrid";
 
 export const useSnake = () => {
   const { cols, rows } = useGridSize();
@@ -9,9 +9,7 @@ export const useSnake = () => {
 
   // Snake, berry, and score states
   const [snake, setSnake] = useState<{ x: number; y: number }[]>(INITIAL_SNAKE);
-  const [berry, setBerry] = useState<{ x: number; y: number }>(
-    getRandomBerryPosition(INITIAL_SNAKE, cols, rows)
-  );
+  const [berry, setBerry] = useState<{ x: number; y: number }>(getRandomBerryPosition(INITIAL_SNAKE, cols, rows));
   const [score, setScore] = useState(0);
 
   // Snake movement and game logic

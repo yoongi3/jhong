@@ -1,7 +1,7 @@
 import MemoizedGridCell, { GridContainer } from "./GridStyles";
 import { SnakeContainer, SnakePart } from "../Snake/SnakeStyles";
 import berryImg from "../Assets/berry.png";
-import { useGridSize } from "../Hooks/UseGrid";
+import { useGridSize } from "../Hooks/useGrid";
 
 interface GridProps {
   snake: { x: number; y: number }[];
