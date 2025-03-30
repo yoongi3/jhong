@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Reusable/Button/Button";
 import { ButtonVariants } from "../Reusable/Button/ButtonVariants";
-import { StyledControlPanel, ContentButtonContainer, ScoreContainer, ScoreText, ScoreLabel, ScoreNumber } from "./ControlPanelStyles";
+import { StyledControlPanel, ContentButtonContainer, ScoreContainer, ScoreText, ColorOne, ColorTwo, NameText } from "./ControlPanelStyles";
 
 interface ControlPanelProps {
     score: number; 
@@ -10,22 +10,24 @@ interface ControlPanelProps {
 const ControlPanel: React.FC<ControlPanelProps> = React.memo(({ score }) => {
     return (
         <StyledControlPanel>
+            <NameText>
+                <ColorOne>Player Name: </ColorOne>
+                <ColorTwo> Joshua Hong</ColorTwo>
+            </NameText>
             <ScoreContainer>
                 <ScoreText>
-                    <ScoreLabel>High Score: </ScoreLabel>
-                    <ScoreNumber>080401</ScoreNumber>
+                    <ColorOne>High Score: </ColorOne>
+                    <ColorTwo>080401</ColorTwo>
                 </ScoreText>
                 <ScoreText>
-                    <ScoreLabel>Score: </ScoreLabel>
-                    <ScoreNumber>{score.toString().padStart(6, "0")}</ScoreNumber>
+                    <ColorOne>Score: </ColorOne>
+                    <ColorTwo>{score.toString().padStart(6, "0")}</ColorTwo>
                 </ScoreText>
             </ScoreContainer>
-                
-            <div> Pause button - Play Button </div>
             <ContentButtonContainer>
-                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("About Me Button Clicked")}>About Me</Button>
-                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("My Projects Button Clicked")}>My Projects</Button>
-                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("Contact Me Button Clicked")}>Contact Me</Button>
+                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("About Me Button Clicked")}>{"> "}About Me</Button>
+                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("My Projects Button Clicked")}>{"> "}My Projects</Button>
+                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("Contact Me Button Clicked")}>{"> "}Contact Me</Button>
             </ContentButtonContainer>
         </StyledControlPanel>
     );

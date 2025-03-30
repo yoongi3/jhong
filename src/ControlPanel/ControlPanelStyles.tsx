@@ -1,67 +1,128 @@
 import styled from "styled-components";
 
+// Empty Control Panel Container
 export const StyledControlPanel = styled.div`
     position: absolute;
-    top: 10vw;
-    left: 5vw;
-    height: 60vh;
-    width: 20vw;
+    top: 4vh;
+    left: 3vw;
     z-index: 3;
+    text-shadow: 1px 1px 2px #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    background-color: rgba(255, 215, 0, 0.2);
     border-radius: 10px;
-    padding: 1.5vw;
-    outline: 0.2vw solid #FFFFFF;
-    font-size: 2vw;
-
-    text-shadow: 1px 1px 2px #000000;
     
-    @media (max-width: 500px) and (max-height: 800px) { /* TODO: Phone screens */
-        width: 40vw;
-        height: 80vw;
-        top: 55vh;
-        left: 35vw;
+    /* Media queries */
+    @media (max-width: 768px) {
+        /* Adjust styles for tablet */
     }
-`
+
+    @media (max-width: 480px) {
+        /* Adjust styles for phone */
+        background-color: rgba(253, 6, 126, 0.63);
+
+    }
+`;
+
+// Empty Score Container
 export const ScoreContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 2%;
-    background-color: #4B0082;
+    align-items: end;
     border-radius: 10px;
-    border: 0.15vw solid #FFFFFF;
-    width: 100%;
+    margin-top: 5vh;
+
+    /* Media queries */
+    @media (max-width: 768px) {
+        /* Adjust styles for tablet */
+    }
+
+    @media (max-width: 480px) {
+        /* Adjust styles for phone */
+    }
 `;
 
-export const ScoreText = styled.div`
-    text-align: center;
+export const NameText = styled.div`
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center;
-    font-size: 99%;
+    flex-direction: column;
+    font-size: 4vw;
+    color: #fff;  /* White text for contrast */
+    text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
+    animation: glow 3s ease-in-out 0s 8 forwards; /* Animation runs 8 times and stays in the final state */
+
+    will-change: text-shadow;
+
+    @keyframes glow {
+        0% {
+            text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
+        }
+        50% {
+            text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.6em #ff005e, 0 0 1.2em #ff005e, 0 0 2.4em #ff005e;
+        }
+        100% {
+            text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
+        }
+    }
+
+    /* Media queries */
+    @media (max-width: 768px) {
+        /* Adjust styles for tablet */
+    }
+
+    @media (max-width: 480px) {
+        /* Adjust styles for phone */
+    }
+`
+
+// Empty Score Text
+export const ScoreText = styled.div`
+    font-size: 2vw;
+    text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;
+
+    /* Media queries */
+    @media (max-width: 768px) {
+        /* Adjust styles for tablet */
+    }
+
+    @media (max-width: 480px) {
+        /* Adjust styles for phone */
+    }
 `;
-export const ScoreLabel = styled.span`
+
+// Empty Score Label
+export const ColorOne = styled.span`
     color: #FF00FF; 
     font-weight: bold;
-    letter-spacing: 0.1em;
 `;
 
-export const ScoreNumber = styled.span`
+// Empty Score Number
+export const ColorTwo = styled.span`
     color: #FFD700;
     font-weight: bold;
-    letter-spacing: 0.4em;
-    border-radius: 10px;
 `;
 
+// Empty Content Button Container
 export const ContentButtonContainer = styled.div`
+    height: 15vw;
+    width: 80%;
+    margin-top: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 40%;
-    width: 100%;
-`
+    align-items: center;
+
+    /* Media queries */
+    @media (max-width: 768px) {
+        /* Adjust styles for tablet */
+    }
+
+    @media (max-width: 480px) {
+        /* Adjust styles for phone */
+    }
+
+    @media (max-height: 500px) {
+        margin-top: 10vh;
+        background-color: rgba(253, 6, 126, 0.63);
+    }
+`;
