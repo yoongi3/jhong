@@ -2,10 +2,12 @@ import React from "react";
 import Button from "../Reusable/Button/Button";
 import { ButtonVariants } from "../Reusable/Button/ButtonVariants";
 import { StyledControlPanel, ContentButtonContainer, ScoreContainer, ScoreText, ColorOne, ColorTwo, NameText } from "./ControlPanelStyles";
-import { useContentState } from "../Hooks/useContentState";
+import { useContent } from "../Providers/ContentProvider";
 import { useScore } from "../Providers/ScoreProvider";
 
-const ControlPanel: React.FC<ControlPanelProps> = React.memo(({ score }) => {
+const ControlPanel: React.FC = React.memo(() => {
+    const { setContent } = useContent();  // Use the custom hook
+    const { score } = useScore();
     return (
         <StyledControlPanel>
             <NameText>
@@ -23,9 +25,11 @@ const ControlPanel: React.FC<ControlPanelProps> = React.memo(({ score }) => {
                 </ScoreText>
             </ScoreContainer>
             <ContentButtonContainer>
-                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("About Me Button Clicked")}>{"> "}About Me</Button>
-                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("My Projects Button Clicked")}>{"> "}My Projects</Button>
-                <Button variant={ButtonVariants.PANEL} onClick={() => console.log("Contact Me Button Clicked")}>{"> "}Contact Me</Button>
+                <Button variant={ButtonVariants.PANEL} onClick={() => {
+                    setContent("about")
+                    }}>{"> "}About Me</Button>
+                <Button variant={ButtonVariants.PANEL} onClick={() => setContent("projects")}>{"> "}My Projects</Button>
+                <Button variant={ButtonVariants.PANEL} onClick={() => setContent("contact")}>{"> "}Contact Me</Button>
             </ContentButtonContainer>
         </StyledControlPanel>
     );
