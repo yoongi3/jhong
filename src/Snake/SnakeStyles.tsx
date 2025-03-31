@@ -9,12 +9,11 @@ export const SnakeContainer = styled.div`
     z-index: 2;
 `
 
-const RATIO = 0.7
-
-export const SnakePart = styled.div<{ cellSize: number }>`
+export const SnakePart = styled.div<{ partSize: number }>`
     position: absolute;
     background-color: #32CD32;
+    box-shadow: 0.1rem 0.1rem 0.1rem #000000, 0 0 0.2rem #66FF66, 0 0 0.4rem #66FF66;
     border-radius: 30%;
-    width: ${({ cellSize }) => cellSize * RATIO}px;
-    height: ${({ cellSize }) => cellSize * RATIO}px;
+    width: ${({ partSize }) => partSize}px;
+    height: ${({ partSize }) => partSize}px;
 `
