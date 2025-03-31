@@ -3,13 +3,10 @@ import { SnakeContainer, SnakePart } from "../Snake/SnakeStyles";
 import berryImg from "../Assets/berry.png";
 import { useGridSize } from "../Hooks/useGrid";
 import { BERRY_SIZE, MAXSIZE, MAXSIZE_REDUCE } from "../Snake/SnakeConstants";
+import { useSnake } from "../Hooks/useSnake";
 
-interface GridProps {
-  snake: { x: number; y: number }[];
-  berry: { x: number; y: number };
-}
-
-const Grid: React.FC<GridProps> = ({ snake, berry }) => {
+const Grid: React.FC = () => {
+  const { snake, berry } = useSnake();
   const { cellSize, cols, rows } = useGridSize();
 
   const renderGrid = () => (

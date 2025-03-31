@@ -2,10 +2,8 @@ import React from "react";
 import Button from "../Reusable/Button/Button";
 import { ButtonVariants } from "../Reusable/Button/ButtonVariants";
 import { StyledControlPanel, ContentButtonContainer, ScoreContainer, ScoreText, ColorOne, ColorTwo, NameText } from "./ControlPanelStyles";
-
-interface ControlPanelProps {
-    score: number; 
-}
+import { useContentState } from "../Hooks/useContentState";
+import { useScore } from "../Providers/ScoreProvider";
 
 const ControlPanel: React.FC<ControlPanelProps> = React.memo(({ score }) => {
     return (

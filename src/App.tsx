@@ -1,18 +1,16 @@
-import ControlPanel from './ControlPanel/ControlPanel'
-import { GlobalStyle } from './GlobalStyles'
-import Grid from './Grid/Grid'
-import { useSnake } from './Hooks/useSnake'
+import ControlPanel from './ControlPanel/ControlPanel';
+import { GlobalStyle } from './GlobalStyles';
+import Grid from './Grid/Grid';
+import { ScoreProvider } from './Providers/ScoreProvider'; // Import ScoreProvider
 
 function App() {
-  const { snake, berry, score } = useSnake(); // You can use score from the hook
-
   return (
-    <>
-      <GlobalStyle/>
-      <ControlPanel score={score}/>
-      <Grid snake={snake} berry={berry}/>
-    </>
-  )
+    <ScoreProvider> {/* Wrap your app to provide the score context */}
+      <GlobalStyle />
+      <ControlPanel />
+      <Grid />
+    </ScoreProvider>
+  );
 }
 
-export default App
+export default App;
