@@ -19,6 +19,6 @@ export const DIRECTIONS = [
 
 export const INITIAL_SNAKE = [...SNAKE_START_POSITION];
 
-export const MAXSIZE = 0.7;
-export const MAXSIZE_REDUCE = 0.105;
+export const MAXSIZE = 0.65;
+export const MAXSIZE_REDUCE = 0.3;
 export const BERRY_SIZE = 0.75;

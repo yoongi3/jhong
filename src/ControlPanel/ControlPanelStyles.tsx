@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-// Empty Control Panel Container
-export const StyledControlPanel = styled.div`
+export const PanelContainer = styled.div`
     position: absolute;
     top: 4vh;
     left: 3vw;
@@ -18,20 +17,17 @@ export const StyledControlPanel = styled.div`
     }
 
     @media (max-width: 480px) {
-        /* Adjust styles for phone */
-        background-color: rgba(253, 6, 126, 0.63);
 
     }
 `;
 
-// Empty Score Container
-export const ScoreContainer = styled.div`
+export const ScoreBoard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: end;
-    border-radius: 10px;
     margin-top: 5vh;
+    font-size: 2vw;
 
     /* Media queries */
     @media (max-width: 768px) {
@@ -40,13 +36,15 @@ export const ScoreContainer = styled.div`
 
     @media (max-width: 480px) {
         /* Adjust styles for phone */
+        margin: 0 0 0 15vw;
+        font-size: 4vw;
     }
 `;
 
-export const NameText = styled.div`
+export const PageTitle = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: 4vw;
+    font-size: 3.3vw;
     color: #fff;  /* White text for contrast */
     text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
     animation: glow 3s ease-in-out 0s 8 forwards; /* Animation runs 8 times and stays in the final state */
@@ -72,12 +70,11 @@ export const NameText = styled.div`
 
     @media (max-width: 480px) {
         /* Adjust styles for phone */
+        font-size: 7vw;
     }
 `
 
-// Empty Score Text
 export const ScoreText = styled.div`
-    font-size: 2vw;
     text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;
 
     /* Media queries */
@@ -90,23 +87,20 @@ export const ScoreText = styled.div`
     }
 `;
 
-// Empty Score Label
-export const ColorOne = styled.span`
+export const LabelPrimary = styled.span`
     color: #FF00FF; 
     font-weight: bold;
 `;
 
-// Empty Score Number
-export const ColorTwo = styled.span`
+export const LabelSecondary = styled.span`
     color: #FFD700;
     font-weight: bold;
 `;
 
-// Empty Content Button Container
-export const ContentButtonContainer = styled.div`
+export const ButtonGroup = styled.div`
     height: 15vw;
-    width: 80%;
-    margin-top: 25vh;
+    width: 100%;
+    margin-top: 20vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -119,6 +113,8 @@ export const ContentButtonContainer = styled.div`
 
     @media (max-width: 480px) {
         /* Adjust styles for phone */
+        margin-top: 60vh;
+        height: 35vw;
     }
 
     @media (max-height: 500px) {
@@ -126,3 +122,8 @@ export const ContentButtonContainer = styled.div`
         background-color: rgba(253, 6, 126, 0.63);
     }
 `;
+export const Contan = styled.div`   
+    @media (max-width: 480px) {
+        display: flex;
+    }
+`

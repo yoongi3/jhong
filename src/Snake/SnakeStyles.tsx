@@ -12,8 +12,7 @@ export const SnakeContainer = styled.div`
 export const SnakePart = styled.div<{ partSize: number }>`
     position: absolute;
     background-color: #32CD32;
-    box-shadow: 0.1rem 0.1rem 0.1rem #000000, 0 0 0.2rem #66FF66, 0 0 0.4rem #66FF66;
-    border-radius: 30%;
+    border-radius: 40%;
     width: ${({ partSize }) => partSize}px;
     height: ${({ partSize }) => partSize}px;
 `
