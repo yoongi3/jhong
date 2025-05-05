@@ -14,16 +14,17 @@ export const PanelButton = styled.button`
     height: 20%;
     background-color: transparent;
     border: transparent;
-    border-radius: 10px;
     color: #FFFFFF;
     font-size: 2vw;
     text-align: left;
     cursor: pointer;
-    text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;
+    text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+                 0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;
 
     &:hover {
         color: #FF00FF; 
-        text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.2em #ff005e, 0 0 0.4em #ff005e, 0 0 0.8em #ff005e;
+        text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+                     0 0 0.2em #ff005e, 0 0 0.4em #ff005e, 0 0 0.8em #ff005e;
         animation: ${bounceAnimation} 0.8s infinite alternate ease-in-out; 
     }
 
@@ -37,5 +38,15 @@ export const PanelButton = styled.button`
 `;
 
 export const CloseButton = styled.button`
-    background-color: blue;
+    background-color: transparent;
+    border: transparent;
+    font-size: 1.6vw;
+    padding-right: 1vw;
+    text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+                 0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;
+    &:hover {
+        color: #FF00FF; 
+            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+                         0 0 0.2em #ff005e, 0 0 0.4em #ff005e, 0 0 0.8em #ff005e;
+    }
 `;

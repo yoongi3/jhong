@@ -5,7 +5,6 @@ export const PanelContainer = styled.div`
     top: 4vh;
     left: 3vw;
     z-index: 3;
-    text-shadow: 1px 1px 2px #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,21 +44,22 @@ export const PageTitle = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 3.3vw;
-    color: #fff;  /* White text for contrast */
-    text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
-    animation: glow 3s ease-in-out 0s 8 forwards; /* Animation runs 8 times and stays in the final state */
+    animation: glow 3s ease-in-out 0s 6 forwards; /* Animation runs #X times and stays in the final state */
 
     will-change: text-shadow;
 
     @keyframes glow {
         0% {
-            text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
+            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+            0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
         }
         50% {
-            text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.6em #ff005e, 0 0 1.2em #ff005e, 0 0 2.4em #ff005e;
+            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000, 
+            0 0 0.6em #ff005e, 0 0 1.2em #ff005e, 0 0 2.4em #ff005e;
         }
         100% {
-            text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
+            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+            0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
         }
     }
 
@@ -75,7 +75,8 @@ export const PageTitle = styled.div`
 `
 
 export const ScoreText = styled.div`
-    text-shadow: 0.05em 0.05em 0em #000000, 0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;
+    text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000, 
+        0 0 0.2em #00d4ff, 0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff;;
 
     /* Media queries */
     @media (max-width: 768px) {
@@ -119,7 +120,6 @@ export const ButtonGroup = styled.div`
 
     @media (max-height: 500px) {
         margin-top: 10vh;
-        background-color: rgba(253, 6, 126, 0.63);
     }
 `;
 export const Contan = styled.div`   
