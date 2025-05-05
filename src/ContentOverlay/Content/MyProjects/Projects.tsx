@@ -2,7 +2,7 @@ export const projects = [
     {
         id: 1,
         title: 'TimePick',
-        image: 'Assets/TimePick.png',
+        image: '/Assets/TimePick.png',
         description: 'Team up and sync up! This web app makes group scheduling a breeze — coordinate availabilities, dodge conflicts, and lock in plans with ease. No confusion, just smooth moves!',
         link: 'https://github.com/yoongi3/TimePick'
     },
