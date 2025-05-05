@@ -1,7 +1,9 @@
 import { useContent } from "../Providers/ContentProvider"
-import AboutMeContent from "./Content/AboutMeContent";
-import ContactMeContent from "./Content/ContactMe";
-import MyProjectsContent from "./Content/MyProjectsContent";
+import Button from "../Reusable/Button/Button";
+import { ButtonVariants } from "../Reusable/Button/ButtonVariants";
+import AboutMeContent from "./Content/AboutMe/AboutMeContent";
+import ContactMeContent from "./Content/ContactMe/ContactMe";
+import MyProjectsContent from "./Content/MyProjects/MyProjectsContent";
 import { ContentWrapper, HeaderContainer, OverlayWrapper, Title } from "./ContentOverlayStyles";
 
   const ContentOverlay: React.FC = () => {
@@ -13,7 +15,7 @@ import { ContentWrapper, HeaderContainer, OverlayWrapper, Title } from "./Conten
         <OverlayWrapper>
             <HeaderContainer>
                 <Title>{content}</Title>
-                <button onClick={() => setContent("")}>close</button>
+                <Button variant={ButtonVariants.CLOSE} onClick={() => setContent("")}>close</Button>
             </HeaderContainer>
             <ContentWrapper>
                 {content === "About Me" && <AboutMeContent />}

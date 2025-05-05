@@ -8,6 +8,7 @@ export const OverlayWrapper = styled.div`
     padding: 1%;
     z-index: 5;
     text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000;
+
     display: flex;
     flex-direction: column;
     align-items: left;
