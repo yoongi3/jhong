@@ -3,7 +3,7 @@ import ControlPanel from './ControlPanel/ControlPanel';
 import { GlobalStyle } from './GlobalStyles';
 import Grid from './Grid/Grid';
 import { ContentProvider } from './Providers/ContentProvider';
-import { ScoreProvider } from './Providers/ScoreProvider'; // Import ScoreProvider
+import { ScoreProvider } from './Providers/ScoreProvider'; 
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <ControlPanel />
           <Grid />
           <ContentOverlay />
-        </ContentProvider>
+        </ContentProvider >
       </ScoreProvider>
     </>
   );

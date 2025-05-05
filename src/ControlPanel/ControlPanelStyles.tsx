@@ -44,24 +44,9 @@ export const PageTitle = styled.div`
     display: flex;
     flex-direction: column;
     font-size: 3.3vw;
-    animation: glow 3s ease-in-out 0s 6 forwards; /* Animation runs #X times and stays in the final state */
-
+    text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
+                0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
     will-change: text-shadow;
-
-    @keyframes glow {
-        0% {
-            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
-            0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
-        }
-        50% {
-            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000, 
-            0 0 0.6em #ff005e, 0 0 1.2em #ff005e, 0 0 2.4em #ff005e;
-        }
-        100% {
-            text-shadow: -0.07em 0 #000000, 0 0.07em #000000, 0.07em 0 #000000, 0 -0.07em #000000,
-            0 0 0.4em #00d4ff, 0 0 0.8em #00d4ff, 0 0 1.6em #00d4ff;
-        }
-    }
 
     /* Media queries */
     @media (max-width: 768px) {
