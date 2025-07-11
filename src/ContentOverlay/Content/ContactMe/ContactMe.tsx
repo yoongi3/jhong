@@ -2,7 +2,7 @@ const ContactMeContent = () => {
 
     return(
         <div>
-            Contact
+            <a href="https://www.linkedin.com/in/joshuahong3/">Linkedin</a>
         </div>
     )
 };
