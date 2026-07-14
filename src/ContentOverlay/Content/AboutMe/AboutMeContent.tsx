@@ -1,5 +1,5 @@
 import { Text } from "./AboutMeStyle";
-import faceImg from "/src/Assets/face-sprite.jpg";
+import faceImg from "/src/Assets/profile-image.png";
 
 const AboutMeContent = () => {
     return(
