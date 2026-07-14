@@ -10,9 +10,10 @@ const AboutMeContent = () => {
             </p>
             <p>
                 <span>
-                I enjoy solving problems and making everyday tasks simpler. If
-                something feels repetitive, I'll try to automate it. I like building
-                things that save time and just make things work better.
+                I like solving problems, especially the repetitive or messy
+                kind. I'll spend three hours building something to automate a
+                ten-minute task, I just can't help it once I've noticed 
+                something's clunky or could be cleaner.
                 </span>
             </p>
             <p>
@@ -27,7 +28,7 @@ const AboutMeContent = () => {
                 <span>
                 Outside of that, I'm always exploring new technologies, working on
                 side projects, or finding ways to improve the tools I already use. Most
-                of my work lately has been in Python and React. I also recently
+                of my work has been in Python and React. I've 
                 completed my CompTIA Network+ certification, which gave me a much
                 stronger grasp of how networks and infrastructure actually work. I
                 enjoy the blend of logic and creativity involved, and I'm always
