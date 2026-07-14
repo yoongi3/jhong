@@ -4,7 +4,7 @@ import faceImg from "/src/Assets/profile-image.png";
 const AboutMeContent = () => {
     return(
         <Text>
-            <img src={faceImg} alt="face" style={{ WebkitMaskImage: "radial-gradient(circle, black 70%, transparent 100%)", maskImage: "radial-gradient(circle, black 70%, transparent 100%)" }} />
+            <img src={faceImg} alt="face"/>
             <p>
                 <span>Hi, I'm Josh.</span>
             </p>
